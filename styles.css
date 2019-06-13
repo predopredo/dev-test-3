@@ -1,0 +1,99 @@
+.section-main {
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.map-box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 200px;
+  left: -100px;
+  border-bottom: 3px solid #e00;
+  border-right: 3px solid #e00;
+}
+
+.map-box:before {
+  content: "";
+  width: 200px;
+  right: -200px;
+  position: absolute;
+  border-bottom: 3px solid #e00;
+}
+
+.box-move {
+  width: 30px;
+  height: 30px;
+  background-color: #ee0;
+  position: absolute;
+  left: 10px;
+  border: 1px solid #333;
+  left: 34px;
+  bottom: -15px;
+  border-radius: 100%;
+  transition: background-color 10s;
+/*   animation: movement 3s linear  alternate infinite, 
+             shapeShift 3s linear  alternate infinite,
+             colorChange 3s linear  alternate infinite; */
+  animation: nt-movement 6s linear infinite, 
+             nt-shapeShift 6s linear infinite,
+             nt-colorChange 6s linear infinite;
+}
+
+/* Animations */
+
+/* with transition */
+/* movement */
+@keyframes movement {
+  0% {}
+  33% {transform: translateX(200px)}
+  66% {transform: translateX(200px) translateY(-200px)}
+  100% {transform: translateX(400px) translateY(-200px)}
+}
+/* shapeShift */
+@keyframes shapeShift {
+  from{border-radius: 100%}
+  to{border-radius: 0%}
+}
+/* colorChange */
+@keyframes colorChange {
+  0% {}
+  33% {background-color: #0f0}
+  66% {background-color: #00f}
+  100% {background-color: #fff}
+}
+
+/* no transition */
+/* movement */
+@keyframes nt-movement {
+  0% {}
+  16.7% {transform: translateX(200px)}
+  33.4% {transform: translateX(200px) translateY(-200px)}
+  50% {transform: translateX(400px) translateY(-200px)}
+  66.7% {transform: translateX(200px) translateY(-200px)}
+  83.4% {transform: translateX(200px)}
+  100% {}
+}
+/* nt-shapeshift */
+@keyframes nt-shapeShift {
+  50% {border-radius: 0%}
+  100% {border-radius: 100%}
+}
+
+/* colorChange */
+@keyframes nt-colorChange {
+  16.6%{background-color: #ee0}
+  16.7% {background-color: #0f0}
+  33.3%{background-color: #0f0}
+  33.4% {background-color: #00f}
+  49.9% {background-color: #00f}
+  50% {background-color: #fff}
+  66.6% {background-color: #fff}
+  66.7% {background-color: #00f}
+  83.3% {background-color: #00f}
+  83.4% {background-color: #0f0}
+  99.9% {background-color: #0f0}
+  100% {background-color: #ee0}
+}
